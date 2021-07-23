@@ -1,11 +1,17 @@
- import './App.css';
-import Home from './components/Header';
-
+import './App.css';
+import Header from './components/header/Header';
+import Home from './components/home/Home';
+import { Box } from '@material-ui/core'
+ 
 function App() {
   return (
-    <div className="App">
+    <>
+     <Header />
+     <Box style={{marginTop: 64}}>
      <Home />
-    </div>
+     </Box>
+     
+</>
   );
 }
 
