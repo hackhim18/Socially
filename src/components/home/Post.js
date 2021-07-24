@@ -18,7 +18,19 @@ const useStyle = makeStyles({
         objectFit: 'cover',
         borderRadius: '10px 10px 0 0',
         height: 150
-    } 
+    } ,
+     textColor: {
+        color: '#878787',
+        fontSize: 12
+    },
+    heading: {
+        fontSize: 18,
+        fontWeight: 600
+    },
+    detail: {
+        fontSize: 14,
+        wordBreak: 'break-word'
+    }
 })
 
 const Post = ({ post }) => {
@@ -28,10 +40,10 @@ const Post = ({ post }) => {
     return (
         <Box className={classes.container}>
             <img src={url} alt="post" className={classes.image} />
-            <Typography>Music</Typography>
-      <Typography>hackhim18</Typography>
-      <Typography>Author:hackhim18</Typography>
-      <Typography>Hi from hackhim18</Typography>
+            <Typography  className={classes.textColor}>Music</Typography>
+      <Typography className={classes.heading}>hackhim18</Typography>
+      <Typography className={classes.textColor}>Author:hackhim18</Typography>
+      <Typography className={classes.detail}>Hi from hackhim18 </Typography>
         </Box>
     )
 }
