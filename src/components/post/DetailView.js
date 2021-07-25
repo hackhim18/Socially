@@ -1,6 +1,6 @@
-import { Box,makeStyles, Typography} from '@material-ui/core'
+import { Box,Link,makeStyles, Typography} from '@material-ui/core'
 import React from 'react'
-import { Edit ,Delete } from '@material-ui/icons';
+import { Edit ,Delete} from '@material-ui/icons';
 
 const usestyles = makeStyles((theme) =>( {
     image:{
@@ -50,10 +50,11 @@ const DetailView = () => {
     
     return (
        <Box className={classes.container}>
-        < img className={classes.image} src={url} alt="banner" />
+        < img src={url} alt="banner"  className={classes.image}/>
         <Box className={classes.icons}>
-            <Edit   className={classes.icon} color='primary'/>
-            <Delete className={classes.icon } color='error'/>
+       
+           <Link to='/update'><Edit   className={classes.icon} color='primary'/></Link>
+           <Delete className={classes.icon } color='error'/>
             </Box> 
             <Typography className={classes.heading}> Title of the Blog</Typography>  
             <Box className={classes.subheading}>

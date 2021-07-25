@@ -38,7 +38,7 @@ const useStyle = makeStyles((theme) => ({
 }
 }))
 
-const CreateView = () => {
+const UpdateView = () => {
     const classes = useStyle();
  const url ="https://images.unsplash.com/photo-1614995008867-32eef7bff38c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNyZWF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60";        
     return (
@@ -49,7 +49,7 @@ const CreateView = () => {
         <AddCircle fontSize="large" color="action"/>
    
    <InputBase placeholder='Title'  className={classes.textField} />
-   <Button variant="primary"  >Publish</Button> 
+   <Button variant="primary"  >Update</Button> 
      </FormControl>
     <TextareaAutosize
     rowsMin={5}
@@ -62,4 +62,4 @@ const CreateView = () => {
     )
 }
 
-export default CreateView
+export default UpdateView
