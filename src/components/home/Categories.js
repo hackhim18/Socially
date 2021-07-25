@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button,makeStyles,Table, TableHead, TableRow,TableCell, TableBody} from '@material-ui/core'
-
+import { Link } from 'react-router-dom'
 const  useStyles =makeStyles({
     create:{
         margin: 20,
@@ -19,8 +19,11 @@ const Categories = () => {
     const classes = useStyles();
     return (
            <> 
+           <Link to='./create'> 
            <Button variant="contained" className={classes.create}>Create Blog</Button>    
-           
+
+           </Link>
+            
            <Table className={classes.table}>
                <TableHead>
                    <TableRow>

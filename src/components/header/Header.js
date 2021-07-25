@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
     component: {
         background: '#FFFFFF',
-        color: 'black'
+        color: 'black' 
     },
     container: {
         justifyContent: 'center',
@@ -14,12 +14,9 @@ const useStyles = makeStyles({
             padding: 20,
             color: 'black',
             textDecoration: 'none'
-        }
+        }, 
     }
 })
-
-
-
 
 const Header = () => {
     const classes = useStyles();

@@ -2,7 +2,7 @@ import { Box,makeStyles, Typography} from '@material-ui/core'
 import React from 'react'
 import { Edit ,Delete } from '@material-ui/icons';
 
-const usestyles = makeStyles({
+const usestyles = makeStyles((theme) =>( {
     image:{
         width: '100%',
         height:'50vh',
@@ -11,7 +11,12 @@ const usestyles = makeStyles({
     },
     container:{
         padding: '0 100px',
+        [theme.breakpoints.down('md')]:{
+            padding: 0
+        }
     },
+
+
     icons:{
         float: 'right',
     },
@@ -20,10 +25,23 @@ const usestyles = makeStyles({
         border:'1px solid #878787',
         padding: 5,
         borderRadius:10,
-    }
-
-
-})
+    },
+    heading: {
+        fontSize:30,
+        fontWeight:600,
+        textAlign:'center',
+        margin:'50px 0 10px 0',
+     },
+     subheading:{
+         color: '#878787',
+         display: 'flex',
+         margin:'20px 0',
+         [theme.breakpoints.down("xs")]:{
+          display: 'block'
+         } 
+ 
+     }
+}))
 
 
 const DetailView = () => {
@@ -37,9 +55,15 @@ const DetailView = () => {
             <Edit   className={classes.icon} color='primary'/>
             <Delete className={classes.icon } color='error'/>
             </Box> 
-            <Typography className={classes.heading}> Title of the Blog</Typography>      
+            <Typography className={classes.heading}> Title of the Blog</Typography>  
+            <Box className={classes.subheading}>
+                <Typography>Author: <span style={{fontWeight:"bold"}}>  Himanshu Tripathi</span> </Typography>
+                <Typography style={{marginLeft:"auto"}}>22 June 2021</Typography>
+            </Box>
+         <Typography>This is a blog from  Himanshu Tripathi This is a blog from  Himanshu Tripathi This is a blog from  Himanshu Tripathi This is a blog from  Himanshu TripathiThis is a blog from  Himanshu Tripathi</Typography>
         </Box>
      )
 }
 
 export default DetailView
+ 
