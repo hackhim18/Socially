@@ -49,7 +49,7 @@ const UpdateView = () => {
         <AddCircle fontSize="large" color="action"/>
    
    <InputBase placeholder='Title'  className={classes.textField} />
-   <Button variant="primary"  >Update</Button> 
+   <Button color="primary"  >Update</Button> 
      </FormControl>
     <TextareaAutosize
     rowsMin={5}

@@ -52,9 +52,9 @@ const DetailView = () => {
        <Box className={classes.container}>
         < img src={url} alt="banner"  className={classes.image}/>
         <Box className={classes.icons}>
-       
-           <Link to='/update'><Edit   className={classes.icon} color='primary'/></Link>
-           <Delete className={classes.icon } color='error'/>
+            <Link href='/update'>
+            <Edit className={classes.icon} color='primary'/></Link>    
+            <Delete className={classes.icon } color='error'/>
             </Box> 
             <Typography className={classes.heading}> Title of the Blog</Typography>  
             <Box className={classes.subheading}>

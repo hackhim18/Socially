@@ -16,11 +16,11 @@ function App() {
 <Switch>
      <Route exact path='/' component={ Home }/>
      <Route exact path='/details' component= {DetailView} />
-     <DetailView />
-    <Route exact path ='./create' component ={CreateView} />
-    <CreateView />
-    <Route exact path ='./update' component={UpdateView} />
-    <UpdateView />
+      
+    <Route exact path ='/create' component ={CreateView} />
+     
+    <Route exact path ='/update' component={UpdateView} /> 
+ 
      
 </Switch>
  </Box>
