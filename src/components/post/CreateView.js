@@ -58,8 +58,8 @@ const CreateView = () => {
  const [post, setPost] = useState(initialValues)
 
  //handleChange Function
- const handleChange =() =>{
-     setPost({...post,[e.target.name]: e.taget.value})
+ const handleChange =(e) =>{
+     setPost({...post,[e.target.name]: e.target.value});
 
   }
  const savePost = async ()=> {
@@ -73,7 +73,8 @@ const CreateView = () => {
     <FormControl className={classes.form}>
         <AddCircle fontSize="large" color="action"/>
    
-   <InputBase onChange={(e) => handleChange(e)} 
+   <InputBase
+   onChange={(e) => handleChange(e)} 
    placeholder='Title'  
    className={classes.textField}
    name= "title"
