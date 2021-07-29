@@ -2,8 +2,10 @@ import { Box, Button, FormControl, InputBase, makeStyles, TextareaAutosize } fro
 import React from 'react'
 import { useState } from 'react'
 import { AddCircle } from "@material-ui/icons"
-import { createPost } from '../../service/api'
- 
+
+//import { useHistory } from 'react-router-dom'
+
+import { createPost }  from '../../service/api';
 
  
 const useStyle = makeStyles((theme) => ({
@@ -40,13 +42,14 @@ const useStyle = makeStyles((theme) => ({
 }
 }))
 
+//initial values 
 const initialValues = {
    title:'' ,
    description: '',
    picture: '',
    username: 'Himanshu Tripathi',
    categories: 'All',
-   createDate: new Date()
+   createdDate: new Date()
 }
 
 
@@ -54,16 +57,19 @@ const initialValues = {
 const CreateView = () => {
     const classes = useStyle();
  const url ="https://images.unsplash.com/photo-1614995008867-32eef7bff38c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNyZWF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60";        
-   
- const [post, setPost] = useState(initialValues)
+ //const history = useHistory(); 
+ 
+
+ const [post, setPost] = useState(initialValues);    
 
  //handleChange Function
- const handleChange =(e) =>{
+ const handleChange = (e) =>{
      setPost({...post,[e.target.name]: e.target.value});
 
   }
  const savePost = async ()=> {
   await createPost(post);
+  //history.push('/');
  }
  
  return (
