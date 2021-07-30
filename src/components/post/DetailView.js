@@ -1,6 +1,8 @@
 import { Box,Link,makeStyles, Typography} from '@material-ui/core'
 import React from 'react'
+import { useEffect, useState } from 'react';
 import { Edit ,Delete} from '@material-ui/icons';
+import { getPost } from '../../service/api';
 
 const usestyles = makeStyles((theme) =>( {
     image:{
@@ -44,10 +46,20 @@ const usestyles = makeStyles((theme) =>( {
 }))
 
 
-const DetailView = () => {
+const DetailView = ({match}) => {
     const classes = usestyles();
     const url ="https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
-    
+    const [post , setPost] = useState({});
+    useEffect(() =>{
+        const fetchData = async() =>{
+            let data = await getPost(match.params.id);
+            console.log(data);
+            setPost(data);
+        }
+        fetchData();
+    },[])
+
+
     return (
        <Box className={classes.container}>
         < img src={url} alt="banner"  className={classes.image}/>

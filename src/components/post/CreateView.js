@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { AddCircle } from "@material-ui/icons"
 
-//import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import { createPost }  from '../../service/api';
 
@@ -57,7 +57,7 @@ const initialValues = {
 const CreateView = () => {
     const classes = useStyle();
  const url ="https://images.unsplash.com/photo-1614995008867-32eef7bff38c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNyZWF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60";        
- //const history = useHistory(); 
+ const history = useHistory(); 
  
 
  const [post, setPost] = useState(initialValues);    
@@ -69,7 +69,7 @@ const CreateView = () => {
   }
  const savePost = async ()=> {
   await createPost(post);
-  //history.push('/');
+  history.push('/');
  }
  
  return (
