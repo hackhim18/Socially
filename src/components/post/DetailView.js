@@ -64,14 +64,14 @@ const DetailView = ({match}) => {
        <Box className={classes.container}>
         < img src={post.picture || url} alt="banner"  className={classes.image}/>
         <Box className={classes.icons}>
-            <Link href='/update'>
+            <Link href={`/update/${post._id}`}>
             <Edit className={classes.icon} color='primary'/></Link>    
             <Delete className={classes.icon } color='error'/>
             </Box> 
             <Typography className={classes.heading}>{post.title}</Typography>  
             <Box className={classes.subheading}>
                 <Typography>Author: <span style={{fontWeight:"bold"}}> {post.username}</span> </Typography>
-                <Typography style={{marginLeft:"auto"}}>{post.createdDate}</Typography>
+                <Typography style={{marginLeft:"auto"}}>{new Date(post.createdDate).toDateString()}</Typography>
             </Box>
          <Typography>{post.description}</Typography>
         </Box>

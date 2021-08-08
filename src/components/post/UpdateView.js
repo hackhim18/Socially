@@ -1,6 +1,8 @@
 import { Box, Button, FormControl, InputBase, makeStyles, TextareaAutosize } from '@material-ui/core'
 import React from 'react'
 import { AddCircle } from "@material-ui/icons"
+import { useState,useEffect } from 'react'
+import { getPost } from '../../service/api'
  
 
  
@@ -38,10 +40,25 @@ const useStyle = makeStyles((theme) => ({
 }
 }))
 
-const UpdateView = () => {
+const UpdateView = ({match}) => {
     const classes = useStyle();
  const url ="https://images.unsplash.com/photo-1614995008867-32eef7bff38c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNyZWF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60";        
-    return (
+  
+ const [post,setPost] = useState({});
+  useEffect(()=>{
+      const fetchData = async () =>{
+          let data = await getPost(match.params.id);
+          setPost(data)
+          console.log(data);
+      }
+      fetchData();
+  },[])
+ 
+  
+
+ 
+ 
+ return (
     <Box className={classes.container}>
    <img className={classes.image} src={url} alt="banner" />
     

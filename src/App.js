@@ -19,7 +19,7 @@ function App() {
       
     <Route exact path ='/create' component ={CreateView} />
      
-    <Route exact path ='/update' component={UpdateView} /> 
+    <Route exact path ='/update/:id' component={UpdateView} /> 
  
      
 </Switch>
