@@ -54,7 +54,7 @@ const DetailView = ({match}) => {
         const fetchData = async() =>{
             let data = await getPost(match.params.id);
             console.log(data);
-            setPost(data);
+            setPost(data); 
         }
         fetchData();
     },[])
@@ -62,18 +62,18 @@ const DetailView = ({match}) => {
 
     return (
        <Box className={classes.container}>
-        < img src={url} alt="banner"  className={classes.image}/>
+        < img src={post.picture || url} alt="banner"  className={classes.image}/>
         <Box className={classes.icons}>
             <Link href='/update'>
             <Edit className={classes.icon} color='primary'/></Link>    
             <Delete className={classes.icon } color='error'/>
             </Box> 
-            <Typography className={classes.heading}> Title of the Blog</Typography>  
+            <Typography className={classes.heading}>{post.title}</Typography>  
             <Box className={classes.subheading}>
-                <Typography>Author: <span style={{fontWeight:"bold"}}>  Himanshu Tripathi</span> </Typography>
-                <Typography style={{marginLeft:"auto"}}>22 June 2021</Typography>
+                <Typography>Author: <span style={{fontWeight:"bold"}}> {post.username}</span> </Typography>
+                <Typography style={{marginLeft:"auto"}}>{post.createdDate}</Typography>
             </Box>
-         <Typography>This is a blog from  Himanshu Tripathi This is a blog from  Himanshu Tripathi This is a blog from  Himanshu Tripathi This is a blog from  Himanshu TripathiThis is a blog from  Himanshu Tripathi</Typography>
+         <Typography>{post.description}</Typography>
         </Box>
      )
 }
