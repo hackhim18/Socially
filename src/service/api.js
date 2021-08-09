@@ -23,7 +23,7 @@ export const getAllPosts = async() => {
   }
 }
 
-// calling posts
+// posts
 
 export const getPost = async(id) => {
   try{
@@ -34,3 +34,13 @@ export const getPost = async(id) => {
     console.log("Error while calling getPost API", error);
   }
 }
+
+// updatePost
+ export const updatePost =async(id,post) => {
+   try{
+   await axios.post(`${URL}/update/${id}`,post);
+}
+   catch(error){
+     console.log("Error while calling updatePost Api",error);
+   }
+ }
