@@ -43,9 +43,14 @@ const usestyles = makeStyles((theme) =>( {
           display: 'block'
          } 
  
+     },
+     link:{
+         textDecoration:'none',
+         color: 'inherit '
+
      }
 }))
-
+    
 
 const DetailView = ({match}) => {
     const classes = usestyles();
@@ -77,7 +82,9 @@ const deleteBlog = async () => {
             </Box> 
             <Typography className={classes.heading}>{post.title}</Typography>  
             <Box className={classes.subheading}>
+              <Link href ={`/?username=${post.username}`} className={classes.link}> 
                 <Typography>Author: <span style={{fontWeight:"bold"}}> {post.username}</span> </Typography>
+                </Link>
                 <Typography style={{marginLeft:"auto"}}>{new Date(post.createdDate).toDateString()}</Typography>
             </Box>
          <Typography>{post.description}</Typography>

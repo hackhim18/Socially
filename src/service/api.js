@@ -14,9 +14,9 @@ const  URL = "http://localhost:8000";
 }
  
 //calling posts
-export const getAllPosts = async() => {
+export const getAllPosts = async(param) => {
   try {
-      let response = await axios.get(`${URL}/posts`);
+      let response = await axios.get(`${URL}/posts${param}`);
       return response.data;
   } catch (error) {
       console.log('Error while calling getPosts API ', error)
