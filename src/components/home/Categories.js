@@ -1,63 +1,59 @@
-import React from 'react'
-import { Button,makeStyles,Table, TableHead, TableRow,TableCell, TableBody} from '@material-ui/core'
-import { Link } from 'react-router-dom'
-const  useStyles =makeStyles({
-    create:{
+import { Button, Table, TableHead, TableRow, TableCell, TableBody, makeStyles, Grid } from '@material-ui/core';
+import { Link, useLocation } from 'react-router-dom';
+
+import { categories } from '../../constants/data';
+
+const useStyle = makeStyles({
+    table: {
+        border: '1px solid rgba(224, 224, 224, 1)'
+    },
+    write: {
         margin: 20,
-        background:'#3FAABF',
-        color: '#fff ',
-        width: '80%',
-        },
-        table:{
-
-    border: '1px solid rgba(224, 224, 224, 1)'
-        }
-
+        width: '85%',
+        background: '#6495ED',
+        color: '#fff',
+        textDecoration: 'none'
+    },
+    link: {
+        textDecoration: 'none',
+        color: 'inherit'
+    }
 })
 
-const Categories = () => {
-    const classes = useStyles();
+const Categories = ({ match }) => {
+    const classes = useStyle();
+    const location = useLocation();
+    let params = new URLSearchParams(location.search);
     return (
-           <> 
-           <Link to='./create'> 
-           <Button variant="contained" className={classes.create}>Create Blog</Button>    
-
-           </Link>
+        <>
+            <Link to={`/create/${location.search}`} style={{ textDecoration: 'none' }}>
+                <Button variant="contained" className={classes.write}>Create Blog</Button>
+            </Link>
             
-           <Table className={classes.table}>
-               <TableHead>
-                   <TableRow>
-                       <TableCell>All Categories</TableCell>
-                   </TableRow>
-               </TableHead>
-               <TableBody>
-                   <TableRow>
-                   <TableCell>Music</TableCell>
-                   </TableRow>
-                   <TableRow>
-                   <TableCell>Tech</TableCell>
-                   </TableRow>
-                   <TableRow>
-                   <TableCell>Sports</TableCell>
-                   </TableRow>
-                   <TableRow>
-                   <TableCell>Ai</TableCell>
-                   </TableRow>
-                   <TableRow>
-                   <TableCell>Cyber Security</TableCell>
-                   </TableRow>
-                   <TableRow>
-                   <TableCell>Projects</TableCell>
-                   </TableRow>
-                   <TableRow>
-                   <TableCell>LifeStyle</TableCell>
-                   </TableRow>
+            <Table className={classes.table}>
+                <TableHead>
+                    <TableCell>
+                        <Link to={"/"} className={classes.link}>
+                            All Categories
+                        </Link>
+                    </TableCell>
+                </TableHead>
+                <TableBody>
+                    {
+                        categories.map(category => (
+                            <TableRow>
+                                <TableCell>
+                                    <Link to={`/?category=${category}`} className={classes.link}>
+                                        {category}
+                                    </Link>
+                                </TableCell>
+                            </TableRow>
+                        ))
+                    }
                 </TableBody>
-           </Table>
-
-
-          </>
-     )
+            </Table>
+        </>
+    )
 }
 
-export default Categories
+export default Categories;
