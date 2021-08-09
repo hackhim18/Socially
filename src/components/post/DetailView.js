@@ -2,7 +2,8 @@ import { Box,Link,makeStyles, Typography} from '@material-ui/core'
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { Edit ,Delete} from '@material-ui/icons';
-import { getPost } from '../../service/api';
+import { getPost,deletePost } from '../../service/api';
+import { useHistory } from 'react-router-dom';
 
 const usestyles = makeStyles((theme) =>( {
     image:{
@@ -58,6 +59,12 @@ const DetailView = ({match}) => {
         }
         fetchData();
     },[])
+const history = useHistory();
+
+const deleteBlog = async () => {    
+    await deletePost(post._id);
+    history.push('/')
+}
 
 
     return (
@@ -66,7 +73,7 @@ const DetailView = ({match}) => {
         <Box className={classes.icons}>
             <Link href={`/update/${post._id}`}>
             <Edit className={classes.icon} color='primary'/></Link>    
-            <Delete className={classes.icon } color='error'/>
+            <Delete onClick={()=> deleteBlog} className={classes.icon } color='error'/>
             </Box> 
             <Typography className={classes.heading}>{post.title}</Typography>  
             <Box className={classes.subheading}>

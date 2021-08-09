@@ -44,3 +44,12 @@ export const getPost = async(id) => {
      console.log("Error while calling updatePost Api",error);
    }
  }
+//deletePost
+ export const deletePost = async(id) =>{
+   try{
+    await axios.delete(`${URL}/delete/${id}`);
+   }
+   catch(error){
+     console.log("Error while calling deletePost Api".error)
+   }
+ }
