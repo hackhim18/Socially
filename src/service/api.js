@@ -1,6 +1,7 @@
  import axios from 'axios';
 
 const  URL = "http://localhost:8000";
+//import { uploadImage } from '../../../socially-server/controller/image-controller';
 
  export const createPost = async (post) => {
    //const url = "http://localhost:8000";
@@ -50,6 +51,16 @@ export const getPost = async(id) => {
     await axios.delete(`${URL}/delete/${id}`);
    }
    catch(error){
-     console.log("Error while calling deletePost Api".error)
+     console.log("Error while calling deletePost Api",error)
+   }
+ }
+
+ //uploadFile
+ export const uploadFile = async(data) =>{
+   try{
+return await axios.post(`${URL}/file/upload`,data);
+   }
+   catch(error){
+     console.log("Error while calling uploadFile api",error)
    }
  }

@@ -1,11 +1,11 @@
 import { Box, Button, FormControl, InputBase, makeStyles, TextareaAutosize } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect   } from 'react'
 import { useState } from 'react'
 import { AddCircle } from "@material-ui/icons"
 
 import { useHistory } from 'react-router-dom'
 
-import { createPost }  from '../../service/api';
+import { createPost,uploadFile }  from '../../service/api';
 
  
 const useStyle = makeStyles((theme) => ({
@@ -61,6 +61,20 @@ const CreateView = () => {
  
 
  const [post, setPost] = useState(initialValues);    
+ const [file, setfile] = useState('');
+
+ useEffect(()=> {
+const getImage = async () =>{
+if(file) {
+const data = new FormData();
+data.append("name",file.name);
+data.append("file",file);
+
+await uploadFile(data);
+}
+}
+getImage();
+ },[file])
 
  //handleChange Function
  const handleChange = (e) =>{
@@ -77,8 +91,16 @@ const CreateView = () => {
    <img className={classes.image} src={url} alt="banner" />
     
     <FormControl className={classes.form}>
+    <label htmlFor="fileInput">
         <AddCircle fontSize="large" color="action"/>
-   
+  </label>
+   <input
+   type="file"
+   id="fileInput"
+  style={{display:"none"}}
+   onChange={(e)=>setfile(e.target.files[0])}
+   />
+
    <InputBase
    onChange={(e) => handleChange(e)} 
    placeholder='Title'  
