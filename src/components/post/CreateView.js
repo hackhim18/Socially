@@ -91,6 +91,7 @@ getImage();
    <img className={classes.image} src={url} alt="banner" />
     
     <FormControl className={classes.form}>
+
     <label htmlFor="fileInput">
         <AddCircle fontSize="large" color="action"/>
   </label>

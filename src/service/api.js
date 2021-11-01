@@ -61,6 +61,6 @@ export const getPost = async(id) => {
 return await axios.post(`${URL}/file/upload`,data);
    }
    catch(error){
-     console.log("Error while calling uploadFile api",error)
+     console.log("Error while uploading the image",error);
    }
  }
